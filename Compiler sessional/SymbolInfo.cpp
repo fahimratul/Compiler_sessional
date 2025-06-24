@@ -13,9 +13,7 @@ class symbolTable
 {
 public:
     vector<SymbolInfo> hashtable[size];
-
-    void hashfunction(SymbolInfo sym){
-        string name = sym.SymbolName;
+    int hashIndexfun(string name) {
         int sum=0;
         for(int i = 0; i < name.length(); i++) {
             int index = name[i];
@@ -23,14 +21,39 @@ public:
             sum += index;
         }
         int hashIndex = sum % size; 
+        return hashIndex;
+    }
+
+    void hashfunction(SymbolInfo sym){
+         string name = sym.SymbolName;
+           int hashIndex = hashIndexfun(name);     
         cout << "Indexing value: " << hashIndex << endl;
         hashtable[hashIndex].push_back(sym);
     }
     void insert(SymbolInfo sym){
-        cout<<"Inserting symbol: " << sym.SymbolName << " of type " << sym.symbolType << endl;
         hashfunction(sym);
     }
-    void Lookup(){
+    void Lookup(string name){
+        int hashIndex = hashIndexfun(name);
+        if(!hashtable[hashIndex].empty()) {
+            int i_row=-1;
+            SymbolInfo s;
+            for(auto &sym : hashtable[hashIndex]) {
+                i_row++;
+                if(sym.SymbolName == name) {
+                    s= sym;
+                    break;
+                }
+            }
+            if(i_row != -1) {
+                cout << "Symbol found at index " << hashIndex << "," << i_row << ": " 
+                     << s.SymbolName << ", Type: " << s.symbolType << endl;
+            } else {
+                cout << "Symbol not found in the table." << endl;
+            }
+        } else {
+            cout << "Symbol not found in the table." << endl;
+        }
 
     }
     void Delete(){
@@ -57,6 +80,7 @@ int main() {
     st.insert(sym2);
 
     st.printf();
+    st.Lookup("int");
 
     return 0;
 }
