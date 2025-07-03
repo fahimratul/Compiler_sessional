@@ -1,0 +1,31 @@
+Inserted at position:0, 0
+Inserted at position:4, 0
+Found at 0, 0
+Not found.
+Inserted at position:4, 1
+0 -><foo, FUNCTION> 
+4 -><i, IDENTIFIER> <123, NUMBER> 
+Not Found
+Deleted from 4, 1
+0 -><foo, FUNCTION> 
+4 -><i, IDENTIFIER> 
+Inserted at position:0, 1
+Inserted at position:4, 1
+0 -><foo, FUNCTION> <231, NUMBER> 
+4 -><i, IDENTIFIER> <105, NUMBER> 
+Inserted at position:0, 2
+Inserted at position:4, 2
+0 -><foo, FUNCTION> <231, NUMBER> <<=, RELOP> 
+4 -><i, IDENTIFIER> <105, NUMBER> <==, RELOP> 
+Already exists
+Deleted from 4, 2
+0 -><foo, FUNCTION> <231, NUMBER> <<=, RELOP> 
+4 -><i, IDENTIFIER> <105, NUMBER> 
+Deleted from 0, 1
+Inserted at position:0, 2
+0 -><foo, FUNCTION> <<=, RELOP> <204, NUMBER> 
+4 -><i, IDENTIFIER> <105, NUMBER> 
+Deleted from 0, 2
+Inserted at position:4, 2
+0 -><foo, FUNCTION> <<=, RELOP> 
+4 -><i, IDENTIFIER> <105, NUMBER> <123, NUMBER> 
