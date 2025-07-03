@@ -1,31 +1,41 @@
-Inserted at position:0, 0
-Inserted at position:4, 0
-Found at 0, 0
+Inserted at position:8, 0
+Inserted at position:2, 0
+Inserted at position:8, 1
+Inserted at position:8, 2
+2 -><b, IDENTIFIER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> <abc, FUNCTION> 
+Found at 8, 2
+Found at 8, 0
 Not found.
-Inserted at position:4, 1
-0 -><foo, FUNCTION> 
-4 -><i, IDENTIFIER> <123, NUMBER> 
+Deleted from 8, 2
+2 -><b, IDENTIFIER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> 
+Inserted at position:6, 0
 Not Found
-Deleted from 4, 1
-0 -><foo, FUNCTION> 
-4 -><i, IDENTIFIER> 
-Inserted at position:0, 1
+Inserted at position:4, 0
 Inserted at position:4, 1
-0 -><foo, FUNCTION> <231, NUMBER> 
-4 -><i, IDENTIFIER> <105, NUMBER> 
-Inserted at position:0, 2
-Inserted at position:4, 2
-0 -><foo, FUNCTION> <231, NUMBER> <<=, RELOP> 
-4 -><i, IDENTIFIER> <105, NUMBER> <==, RELOP> 
+Inserted at position:8, 2
+2 -><b, IDENTIFIER> 
+4 -><=, RELOP> <==, RELOP> 
+6 -><123, NUMBER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> <>=, RELOP> 
 Already exists
-Deleted from 4, 2
-0 -><foo, FUNCTION> <231, NUMBER> <<=, RELOP> 
-4 -><i, IDENTIFIER> <105, NUMBER> 
-Deleted from 0, 1
-Inserted at position:0, 2
-0 -><foo, FUNCTION> <<=, RELOP> <204, NUMBER> 
-4 -><i, IDENTIFIER> <105, NUMBER> 
-Deleted from 0, 2
-Inserted at position:4, 2
-0 -><foo, FUNCTION> <<=, RELOP> 
-4 -><i, IDENTIFIER> <105, NUMBER> <123, NUMBER> 
+Deleted from 4, 1
+2 -><b, IDENTIFIER> 
+4 -><=, RELOP> 
+6 -><123, NUMBER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> <>=, RELOP> 
+Not found.
+Inserted at position:0, 0
+0 -><204, NUMBER> 
+2 -><b, IDENTIFIER> 
+4 -><=, RELOP> 
+6 -><123, NUMBER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> <>=, RELOP> 
+Deleted from 0, 0
+Already exists
+Already exists
+2 -><b, IDENTIFIER> 
+4 -><=, RELOP> 
+6 -><123, NUMBER> 
+8 -><a, IDENTIFIER> <funcname, FUNCTION> <>=, RELOP> 

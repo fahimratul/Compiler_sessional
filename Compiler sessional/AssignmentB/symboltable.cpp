@@ -2,8 +2,8 @@
 using namespace std;
 
 #define size 10
-#define id "202314402" //MD FAHIM MORSHED RATUL
-#define lastdigit 2 // ID: 202314402, Section A
+#define id "202314105" //your student id
+#define lastdigit 5 // last digit of your student id
 
 class SymbolInfo{
     public:
@@ -19,20 +19,29 @@ int numberofchar(){
     }
     sum=sum%9+1;
     return sum;
-}   
+}  
 
 class symbolTable{
-
     vector<SymbolInfo> hashtable[size];
     int charnumber = numberofchar();
-    
+
+    public:  
     int hashIndexfun(string name) {
         int sum=0;
-        for(int i = 0; i <charnumber && i<name.length(); i++) {
-            int index = static_cast<int>(name[i]);
-            index= index << lastdigit;
+        string temp;
+        if(name.length() > 3) {
+        temp = name.substr(0, 2) + name.substr(name.length() - 2, 2); // Take first two and last two characters if name is longer than 3 characters
+        } 
+        else {
+            temp = name; // Use the whole name if it's less than 3 characters
+        }
+
+        for(int i = 0; i <temp.length(); i++) {
+            int index = static_cast<int>(temp[i]); // take the ASCII value
+            index= index<<lastdigit; // Shift the ASCII value by last digit of student ID
             sum += index;
         }
+        sum= sum*charnumber; // Multiply by the number of characters
         int hashIndex = sum % size; 
         return hashIndex;
     }
@@ -44,8 +53,6 @@ class symbolTable{
         return hashIndex;
     }
 
-    public:  
-    
     void insert(SymbolInfo sym){
         pair<int, int> search = Lookup(sym.SymbolName);
         if(search.first != -1) {
@@ -77,8 +84,9 @@ class symbolTable{
     }
     
     void Delete(string name){
-        pair<int,int> search=Lookup(name);
+        pair<int,int> search=Lookup(name);  // Lookup the symbol to check if it exists
         if(search.first != -1) {
+            // If the symbol exists, remove it from the hash table
             hashtable[search.first].erase(hashtable[search.first].begin() + search.second);
             cout << "Deleted from " << search.first << ", " << search.second << endl;
         } else {
@@ -86,7 +94,7 @@ class symbolTable{
         }
     }
 
-    void printf(){
+    void printTable(){
         for(int i = 0; i < size; i++) {
             if(!hashtable[i].empty()) {
                 cout<<i << " ->";
@@ -97,18 +105,15 @@ class symbolTable{
             }
         }
     }
-
 };
 
 int main() {
     symbolTable st;
-
+    // Example usage of the symbol table
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    
     string operation;
     string name, type;
-    
     while (cin >> operation) {
         if (operation == "I") {
             cin >> name >> type;
@@ -131,12 +136,13 @@ int main() {
             st.Delete(name);
         }
         else if (operation == "P") {
-            st.printf();
+            st.printTable();
         }
         else {
             cout << "Invalid operation." << endl;
         }
     }
+
 
     return 0;
 }
